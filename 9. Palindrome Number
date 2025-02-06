@@ -36,15 +36,29 @@ class Main {
 
 
 class Solution {
-    public static boolean isPalindrome(int x) {
+    public boolean isPalindrome(int x) {
+        //a negative number will never be a palindrome
+        if(x<0)
+            return false;
+
         String xAsString = String.valueOf(x);
-        StringBuilder builder = new StringBuilder();
+        for(int i=0; i< (xAsString.length()/2);i++){
+            if(xAsString.charAt(i) != xAsString.charAt(xAsString.length()-1-i))
+                return false;
+        }
+
+        return true;
+
+        /*StringBuilder builder = new StringBuilder();
         String xReverse = builder.append(xAsString).reverse().toString();
+        String reverse = "";
+
         if(xAsString.compareTo(xReverse)==0){
             return true;
         }
         else{
             return false;
-        }
+        }*/
+
     }
 }
